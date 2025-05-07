@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3ed67175-847c-4bc3-918c-36bd1c047017" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../ada-4-promotions/src/Solver.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ada-4-promotions/src/datastructures/graphs/Edge.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ada-4-promotions/src/datastructures/graphs/Graph.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ada-4-promotions/src/datastructures/graphs/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UnionFind/UnionFindInArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UnionFind/UnionFindInArray.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,11 +18,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2wiy6aM0NOTSs6lffCkBbDC04wf" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,6 +34,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/home/andre/IdeaProjects/ADA/proj2/src/Main.java",
     "vue.rearranger.settings.migration": "true"

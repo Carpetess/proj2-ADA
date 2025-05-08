@@ -38,7 +38,6 @@ public class Solver {
             }
         }
         return mst;
-
     }
 
     private List<Edge> sortEdges(List<Edge> edges) {

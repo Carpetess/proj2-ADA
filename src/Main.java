@@ -1,7 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
@@ -11,14 +11,22 @@ public class Main {
         int locations = Integer.parseInt(firstLine[0]);
         int roads = Integer.parseInt(firstLine[1]);
 
-        List<Edge> edges = new ArrayList<>(roads);
+        List<Edge>[] edges = new List[locations];
 
         for (int i = 0; i < roads; i++) {
             String[] line = br.readLine().split(" ");
             int first = Integer.parseInt(line[0]);
             int second = Integer.parseInt(line[1]);
             int hardness = Integer.parseInt(line[2]);
-            edges.add(new Edge(first, second, hardness));
+            if (edges[first] == null)
+                edges[first] = new LinkedList<>();
+            if (first > second) {
+                int temp = first;
+                first = second;
+                second = temp;
+            }
+            edges[first].add(new Edge(first, second, hardness));
+            edges[second].add(new Edge(second, first, hardness));
         }
 
         Solver solver = new Solver(edges, locations);

@@ -3,23 +3,23 @@ import UnionFind.*;
 import java.util.*;
 
 public class Solver {
-    private List<Edge> edges;
+    private List<Edge>[] allEdges;
     private int numOfLocations;
 
-    public Solver (List<Edge> edges, int numOfLocations) {
-        this.edges = sortEdges(edges);
+    public Solver (List<Edge>[] allEdges, int numOfLocations) {
+        this.allEdges = allEdges;
         this.numOfLocations = numOfLocations;
     }
 
     public int[][] solve(int[][] operations) {
-        Queue<Edge> minQueue = new LinkedList<>(edges);
-        Edge[] mst = mstKruskal(minQueue);
+//        Queue<Edge> minQueue = new LinkedList<>(edges);
+//        Edge[] mst = mstKruskal(minQueue);
         
 
 
         return null;
     }
-
+/**
     private Edge[] mstKruskal(Queue<Edge> minQueue) {
         UnionFind nodesPartition = new UnionFindInArray(numOfLocations);
         int mstFinalSize = numOfLocations - 1;
@@ -45,51 +45,43 @@ public class Solver {
         edges.sort(byHardness);
         return edges;
     }
+**/
 
-
-    private Edge[] mstPrim( List<Edge> graph ) {
-        Edge[] mst = new Edge[numOfLocations - 1];
-        int mstSize = 0;
+    private Edge[] mstPrim( List<Edge>[] graph ) {
+        List<Edge>[] mst = new List[numOfLocations];
         boolean[] selected = new boolean[numOfLocations];
-        int[] cost = new int[numOfLocations];
-        Edge[] via = new Edge[numOfLocations];
-        PriorityQueue<Edge> connected= new PriorityQueue<>(numOfLocations,Comparator.comparingInt(Edge::hardness));
+        Arrays.fill(selected, false);
 
-        for(int i= 0 ; i < numOfLocations ; i++) {
-            selected[i] = false;
-            cost[i] = -1;
-        }
-        Edge origin = graph.getFirst();
-        cost[origin.first()] = 0;
-        connected.add(origin);
+        PriorityQueue<Edge> frontier = new PriorityQueue<>(numOfLocations,Comparator.comparingInt(Edge::hardness));
 
-        do {
-            Edge edge = connected.poll();
-            selected[edge.first()] = true;
-            if ( node != origin )
-                mst[ mstSize++ ] = via[node];
-            exploreNode(graph, node, selected, cost, via, connected);
-        }
-        while ( !connected.isEmpty() );
-        return mst;
-    }
+        /** graph[0] -> [ {Edge: first: 1, second: 2, hardness: x }, ... }*/
+        List<Edge> origin = graph[0];
+        frontier.addAll(origin);
 
-    private void exploreNode( UndiGraph<L> graph, Node source,
-                      boolean[] selected, L[] cost, Edge<L>[] via,
-                      AdaptMinPriQueue<L, Node> connected ) {
-        for every Edge<L> e in graph.incidentEdges(source) {
-            Node node = e.oppositeNode(source);
-            if ( !selected[node] && e.label() < cost[node] ) {
-                boolean nodeIsInQueue = cost[node] < +∞;
-                cost[node] = e.label();
-                via[node] = e;
-                if ( nodeIsInQueue )
-                    connected.decreaseKey(node, cost[node]);
-                else
-                    connected.insert(cost[node], node);
+        for (Edge e : origin)
+            selected[e.first()] = true;
+
+        int mstSize = 0;
+        while (!frontier.isEmpty() || mstSize < numOfLocations - 1) {
+            Edge edge = frontier.poll();
+            if(!selected[edge.second()]) {
+            selected[edge.second()] = true;
+
+            if(mst[edge.first()] == null)
+                mst[edge.first()] = new ArrayList<>();
+            mst[edge.first()].add(edge);
+
+            if(mst[edge.second()] == null)
+                mst[edge.second()] = new ArrayList<>();
+            mst[edge.second()].add(edge);
+
+            for(Edge e : graph[edge.second()]) {
+                if(!selected[e.second()])
+                    frontier.add(e);
             }
+                mstSize++;
+                }
         }
-    }
-
-
+        return null;
+        }
 }

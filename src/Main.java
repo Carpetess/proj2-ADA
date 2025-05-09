@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    @SuppressWarnings("unchecked")
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] firstLine = br.readLine().split(" ");
@@ -22,8 +21,6 @@ public class Main {
             edges.add(new Edge(first, second, hardness));
         }
 
-        Solver solver = new Solver(edges, locations);
-
         int numberOfOperations = Integer.parseInt(br.readLine());
         int[][] operations = new int[numberOfOperations][2];
         for (int i = 0; i < numberOfOperations; i++) {
@@ -31,6 +28,8 @@ public class Main {
             operations [i][0] = Integer.parseInt(line[0]);
             operations[i][1] = Integer.parseInt(line[1]);
         }
+
+        Solver solver = new Solver(edges, locations);
 
         int[] results = solver.solve(operations);
 

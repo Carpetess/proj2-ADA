@@ -3,14 +3,13 @@ import UnionFind.*;
 import java.util.*;
 
 public class Solver {
-    private List<Edge> edges;
-    private int numOfLocations;
+    private final List<Edge> edges;
+    private final int numOfLocations;
 
     public Solver (List<Edge> edges, int numOfLocations) {
         this.edges = edges;
         this.numOfLocations = numOfLocations;
     }
-    @SuppressWarnings("unchecked")
     public int[] solve(int[][] operations) {
         Queue<Edge> minQueue = new PriorityQueue<>(Comparator.comparingInt(Edge::hardness));
         minQueue.addAll(edges);
@@ -51,11 +50,8 @@ public class Solver {
     @SuppressWarnings("unchecked")
     private List<Edge>[] mstKruskal(Queue<Edge> minQueue) {
         UnionFind nodesPartition = new UnionFindInArray(numOfLocations);
-        int mstFinalSize = numOfLocations - 1;
 
         List<Edge>[] mst = new List[numOfLocations];
-
-        int mstSize = 0;
 
         while (!minQueue.isEmpty()) {
             Edge edge = minQueue.poll();

@@ -20,11 +20,8 @@ public class Main {
             int hardness = Integer.parseInt(line[2]);
             if (edges[first] == null)
                 edges[first] = new LinkedList<>();
-            if (first > second) {
-                int temp = first;
-                first = second;
-                second = temp;
-            }
+            if (edges[second] == null)
+                edges[second] = new LinkedList<>();
             edges[first].add(new Edge(first, second, hardness));
             edges[second].add(new Edge(second, first, hardness));
         }
@@ -39,7 +36,11 @@ public class Main {
             operations[i][1] = Integer.parseInt(line[1]);
         }
 
-        int[][] result = solver.solve(operations);
+        int[] results = solver.solve(operations);
+
+        for (int result : results) {
+            System.out.println(result);
+        }
 
 
         }

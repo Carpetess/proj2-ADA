@@ -14,7 +14,7 @@ public class Solver {
     @SuppressWarnings("unchecked")
     public int[] solve(int[][] operations) {
 
-        List<Edge>[] mst = edges;
+        List<Edge>[] mst = mstPrim(edges);
         int[] solution = new int[operations.length];
         for (int i = 0; i < operations.length; i++) {
             int start = operations[i][0];
@@ -49,7 +49,7 @@ public class Solver {
     }
 
 
-    private List<Edge>[] mstPrimAdjacencyList(List<Edge>[] graph) {
+    private List<Edge>[] mstPrim(List<Edge>[] graph) {
         // Inicializa a lista de adjacência da MST
         List<Edge>[] mst = new ArrayList[numOfLocations];
         for (int i = 0; i < numOfLocations; i++) {

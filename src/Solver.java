@@ -10,7 +10,7 @@ public class Solver {
         this.allEdges = allEdges;
         this.numOfLocations = numOfLocations;
     }
-
+    @SuppressWarnings("unchecked")
     public int[] solve(int[][] operations) {
 
         List<Edge>[] mst = mstPrim(allEdges);
@@ -47,6 +47,7 @@ public class Solver {
         return solution;
     }
 
+    @SuppressWarnings("unchecked")
     private List<Edge>[] mstPrim(List<Edge>[] graph) {
         List<Edge>[] mst = new List[numOfLocations];
         boolean[] selected = new boolean[numOfLocations];

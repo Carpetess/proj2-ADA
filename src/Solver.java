@@ -57,17 +57,17 @@ public class Solver {
 
         int mstSize = 0;
 
-        while (mstSize < mstFinalSize) {
+        while (!minQueue.isEmpty()) {
             Edge edge = minQueue.poll();
             int rep1 = nodesPartition.find(edge.first());
             int rep2 = nodesPartition.find(edge.second());
             if (rep1 != rep2) {
-                if(mst[rep1] == null)
-                    mst[rep1] = new LinkedList<>();
-                if(mst[rep2] == null)
-                    mst[rep2] = new LinkedList<>();
-                mst[rep1].add(edge);
-                mst[rep2].add(edge);
+                if(mst[edge.first()] == null)
+                    mst[edge.first()] = new LinkedList<>();
+                if(mst[edge.second()] == null)
+                    mst[edge.second()] = new LinkedList<>();
+                mst[edge.first()].add(edge);
+                mst[edge.second()].add(edge);
                 nodesPartition.union(rep1, rep2);
             }
         }

@@ -48,7 +48,7 @@ public class Solver {
         return solution;
     }
 
-
+    @SuppressWarnings("unchecked")
     private List<Edge>[] mstPrim(List<Edge>[] graph) {
         // Inicializa a lista de adjacência da MST
         List<Edge>[] mst = new ArrayList[numOfLocations];

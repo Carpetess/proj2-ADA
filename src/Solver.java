@@ -51,9 +51,9 @@ public class Solver {
     @SuppressWarnings("unchecked")
     private List<Edge>[] mstPrim(List<Edge>[] graph) {
         // Inicializa a lista de adjacência da MST
-        List<Edge>[] mst = new ArrayList[numOfLocations];
+        List<Edge>[] mst = new List[numOfLocations];
         for (int i = 0; i < numOfLocations; i++) {
-            mst[i] = new ArrayList<>();
+            mst[i] = new LinkedList<>();
         }
 
         boolean[] selected = new boolean[numOfLocations];

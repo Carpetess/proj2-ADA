@@ -10,7 +10,7 @@ public class Solver {
         this.edges = edges;
         this.numOfLocations = numOfLocations;
     }
-
+    @SuppressWarnings("unchecked")
     public int[] solve(int[][] operations) {
         Queue<Edge> minQueue = new PriorityQueue<>(Comparator.comparingInt(Edge::hardness));
         minQueue.addAll(edges);
@@ -48,7 +48,7 @@ public class Solver {
 
         return solution;
     }
-
+    @SuppressWarnings("unchecked")
     private List<Edge>[] mstKruskal(Queue<Edge> minQueue) {
         UnionFind nodesPartition = new UnionFindInArray(numOfLocations);
         int mstFinalSize = numOfLocations - 1;

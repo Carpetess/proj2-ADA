@@ -31,7 +31,11 @@ public class Main {
             operations[i][1] = Integer.parseInt(line[1]);
         }
 
-        int[][] result = solver.solve(operations);
+        int[] results = solver.solve(operations);
+
+        for (int result : results) {
+            System.out.println(result);
+        }
 
 
         }

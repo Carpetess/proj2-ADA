@@ -3,16 +3,20 @@
  */
 import java.util.*;
 
+
 public class Solver {
-    private List<Edge>[] edges;
-    private int numOfLocations;
+    private static final int FIRST_NODE_STATS = 0;
+    private static final int HARDNESS_INITIAL_VALUE = -1;
+    private static final int COST_INITIAL_VALUE = 0;
+
+    private final List<Edge>[] edges;
+    private final int numOfLocations;
 
     public Solver (List<Edge>[] edges, int numOfLocations) {
         this.edges = edges;
         this.numOfLocations = numOfLocations;
     }
 
-    @SuppressWarnings("unchecked")
     public int[] solve(int[][] operations) {
 
         List<Edge>[] mst = mstPrim(edges);
@@ -22,7 +26,7 @@ public class Solver {
             int end = operations[i][1];
             int[] hardness = new int[numOfLocations];
             boolean[] visited = new boolean[numOfLocations];
-            Arrays.fill(hardness, -1);
+            Arrays.fill(hardness, HARDNESS_INITIAL_VALUE);
             boolean found = false;
 
             Queue<Integer> frontier = new LinkedList<>();
@@ -63,8 +67,8 @@ public class Solver {
         PriorityQueue<Node> connected = new PriorityQueue<>(Comparator.comparingInt(Node::cost));
 
         Arrays.fill(cost, Integer.MAX_VALUE);
-        cost[0] = 0;
-        connected.add(new Node(0, 0));
+        cost[0] = COST_INITIAL_VALUE;
+        connected.add(new Node(FIRST_NODE_STATS, FIRST_NODE_STATS));
 
         while (!connected.isEmpty()) {
             Node node = connected.poll();
@@ -72,7 +76,7 @@ public class Solver {
 
             if (!selected[u]) {
                 selected[u] = true;
-                if (u != 0) {
+                if (u != COST_INITIAL_VALUE) {
                     // Adiciona a aresta à lista de adjacência (em ambas as direções, pois o grafo é não direcionado)
                     int v = (via[u].first() == u) ? via[u].second() : via[u].first();
                     mst[u].add(via[u]);

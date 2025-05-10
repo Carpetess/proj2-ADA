@@ -9,8 +9,12 @@
       <change afterPath="$PROJECT_DIR$/../ada-4-promotions/src/datastructures/graphs/Edge.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ada-4-promotions/src/datastructures/graphs/Graph.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ada-4-promotions/src/datastructures/graphs/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Solver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Solver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Archive.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UnionFind/EqualSetsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UnionFind/InvalidElementException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UnionFind/NotRepresentativeException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UnionFind/UnionFind.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UnionFind/UnionFindInArray.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +77,7 @@
       <updated>1746538517004</updated>
       <workItem from="1746538518294" duration="3000" />
       <workItem from="1746708517003" duration="2158000" />
-      <workItem from="1746899217560" duration="1050000" />
+      <workItem from="1746899217560" duration="1841000" />
     </task>
     <servers />
   </component>

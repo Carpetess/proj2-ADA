@@ -1,3 +1,7 @@
+/**
+ * @author André Filipe 65371, Guilherme Fialho 65581
+ */
+
 import UnionFind.*;
 
 import java.util.*;

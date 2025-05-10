@@ -1,5 +1,6 @@
-import UnionFind.*;
-
+/**
+ * @author André Filipe 65371, Guilherme Fialho 65581
+ */
 import java.util.*;
 
 public class Solver {

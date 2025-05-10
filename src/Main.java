@@ -1,3 +1,6 @@
+/**
+ * @author André Filipe 65371, Guilherme Fialho 65581
+ */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

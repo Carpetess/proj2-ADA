@@ -53,9 +53,9 @@ public class Solver {
         return solution;
     }
 
+    //In this method, we used ChatGPT to understand better the use of some data structure and the reasons why
     @SuppressWarnings("unchecked")
     private List<Edge>[] mstPrim(List<Edge>[] graph) {
-        // Inicializa a lista de adjacência da MST
         List<Edge>[] mst = new List[numOfLocations];
         for (int i = 0; i < numOfLocations; i++) {
             mst[i] = new LinkedList<>();
@@ -77,12 +77,12 @@ public class Solver {
             if (!selected[u]) {
                 selected[u] = true;
                 if (u != COST_INITIAL_VALUE) {
-                    // Adiciona a aresta à lista de adjacência (em ambas as direções, pois o grafo é não direcionado)
                     int v = (via[u].first() == u) ? via[u].second() : via[u].first();
                     mst[u].add(via[u]);
                     mst[v].add(via[u]);
                 }
-
+                //This section of the code was made with the help of ChatGPT,
+                // more precisely the use of the method add() everytime (redundancy) instead of using remove and then add in some cases
                 for (Edge edge : graph[u]) {
                     int v = (edge.first() == u) ? edge.second() : edge.first();
                     int weight = edge.hardness();
@@ -96,6 +96,4 @@ public class Solver {
         }
         return mst;
     }
-
-
 }
